@@ -1,5 +1,7 @@
 import { expect } from 'chai'
+import sinon from 'sinon'
 import { isFizz } from '../src/fizz'
+import * as fizz from '../src/fizz'
 import { fizzbuzz } from '../src/fizzbuzz'
 describe('isFizz', () => {
   it('Should return true if number % 3 equal 0', () => {
@@ -14,6 +16,8 @@ describe('isFizz', () => {
 
 describe('fizzbuzz', () => {
   it('Should return fizzbuzz if number % 15 equal 0', () => {
+    console.log(fizz)
+    sinon.stub(fizz, isFizz).return(false)
     expect(fizzbuzz(15)).to.equal('fizzbuzz')
     expect(fizzbuzz(45)).to.equal('fizzbuzz')
   })
