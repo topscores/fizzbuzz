@@ -16,10 +16,10 @@ describe('isFizz', () => {
 
 describe('fizzbuzz', () => {
   it('Should return fizzbuzz if number % 15 equal 0', () => {
-    console.log(fizz)
-    sinon.stub(fizz, isFizz).return(false)
+    sinon.stub(fizz, 'isFizz').returns(true)
     expect(fizzbuzz(15)).to.equal('fizzbuzz')
     expect(fizzbuzz(45)).to.equal('fizzbuzz')
+    fizz.isFizz.restore()
   })
   it('Should return fizz if number % 3 equal 0', () => {
     expect(fizzbuzz(3)).to.equal('fizz')
